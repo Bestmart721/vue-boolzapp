@@ -190,8 +190,9 @@ createApp({
       const dateSplit = date.split(" ");
 
       const hourSplit = dateSplit[1].split(":");
-      
+
       return hourSplit[0] + ":" + hourSplit[1];
+      
     }
   }
   

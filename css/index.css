@@ -50,9 +50,8 @@ body {
 
 .user-image {
   width: 50px;
-  vertical-align:middle;
+  vertical-align: middle;
   border-radius: 50%;
-  background-color: white;
 }
 
 #user-info h4 {
@@ -68,7 +67,7 @@ body {
 
 #notification-setting{
   background-color: rgb(142, 218, 252);
-  padding: 5px;
+  padding: 10px;
 }
 
 #notification-setting i {
@@ -108,9 +107,14 @@ body {
 
 .contact {
   justify-content: space-between;
+  cursor: pointer;
 }
 
-.contact-message {
+.contact:hover{
+  background-color: rgba(221, 221, 211, 1);
+}
+
+.last-contact-message {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -128,13 +132,45 @@ body {
 }
 
 
-
-
 /* Regole chat */
 
 #user-chat {
   height: 95vh;
   width: 70%;
+}
+
+#chat {
+  width: 95%;
+  margin: 0 auto;
+  height: 85vh;
+  border-radius: 5px;
+  border-top: 0px;
+  background-color: rgb(229, 221, 213);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.contact-message {
+  margin-top: 20px;
+  margin-right: 15px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 30%;
+  background-color: rgb(213, 249, 186);
+  align-self: flex-end;
+}
+
+.user-message {
+  margin-top: 20px;
+  margin-left: 15px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 30%;
+  background-color: rgb(255, 255, 255);
 }
 
 
@@ -150,5 +186,5 @@ body {
 }
 
 #user-chat {
-  background-color: rgb(229, 221, 213);
+  background-color: rgb(243, 238, 234);
 }
