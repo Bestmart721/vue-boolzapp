@@ -80,9 +80,10 @@
 
             <!-- Lista chat -->
 
-            <div class="contact row" v-for="(contact, idx) in contacts">
+            <div class="contact row" v-for="(contact, idx) in contacts" @click="activechat(idx)">
 
               <div class="row">
+
                 <!-- Immagine profilo contatto -->
 
                 <img class="user-image" :src="contact.avatar" alt="">
@@ -115,16 +116,16 @@
 
             <header id="user-list-top">
 
-              <!-- Ipostazioni applicazione -->
+              <!-- Ipostazioni chat -->
 
               <div id="setting" class="row">
 
-                <!-- Informazioni utilizzatore  -->
+                <!-- Informazioni contatto  -->
 
                 <div id="user-info">
 
-                  <img class="user-image" :src="contacts[0].avatar" alt="Avatar utente">
-                  <h4>{{contacts[0].name}}</h4>
+                  <img class="user-image" :src="contacts[active].avatar" alt="Avatar utente">
+                  <h4>{{contacts[active].name}}</h4>
 
                 </div>
 
@@ -142,24 +143,31 @@
               
             </header>
 
+            <!-- Chat del contatto -->
+
             <div id="chat">
 
-              <div class="message" v-for="(message, idx) in contacts[0].messages">
+              <!-- Messaggi nella chat -->
 
-                <div :class="message.status == 'received' ? 'user-message' : 'contact-message' ">
+              <div class="message" v-for="(message, idx) in contacts[active].messages">
 
-                  {{message.message}}
+                <div :class="message.status == 'received' ? 'user-message' : 'contact-message'" class="row">
 
+                  <!-- Testo del messaggio -->
+
+                  <div> 
+                    {{message.message}}
+                  </div>
+
+                  <!-- Orario di invio del messaggio -->
+                  
+                  <div>
+                    <small>{{hours(idx)}}</small>
+                  </div>
+                  
                 </div>
+
               </div>
-
-              <!-- <div  class="row" v-for="message in contacts[0].messages">
-
-                {{message.message}}
-
-              </div> -->
-
-              <!-- <div class="user-message" >prova</div> -->
 
             </div>
             

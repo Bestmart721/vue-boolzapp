@@ -6,6 +6,7 @@ createApp({
 
     return {
 
+        active: 0,
         contacts: [
           {
               name: 'Michele',
@@ -179,9 +180,12 @@ createApp({
 
   methods: {
 
+    // Mostra l'ultimo messaggio della chat
     lastMessage(idx) {
       return this.contacts[idx].messages.slice(-1)[0].message;
     },
+
+    // Mostra l'orario dell'ultimo accesso del contatto
 
     hours(idx) {
 
@@ -193,6 +197,14 @@ createApp({
 
       return hourSplit[0] + ":" + hourSplit[1];
       
+    },
+
+    // Permette di cambiare la chat visualizzata al click
+
+    activechat(idx) {
+        console.log(idx);
+        this.active = idx;
+        console.log(this.active);
     }
   }
   
