@@ -7,5 +7,148 @@
 }
 
 body {
-  background-color: violet;
+  background-color: rgb(213, 219, 217);
+}
+
+.row {
+  display: flex;
+}
+
+#top-green {
+  height: 10vh;
+  background-color: rgb(0, 150, 136);
+}
+
+/* Regole contenitore app */
+
+.container {
+  height: 95vh;
+  width: 80%;
+  position: absolute; 
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%); 
+}
+
+/* Regole lista contatti */
+
+#users-list {
+  height: 95vh;
+  width: 30%;
+}
+
+#user-list-top {
+  background-color: rgb(234, 234, 234);
+}
+
+#setting {
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-right: 1px solid black ;
+}
+
+.user-image {
+  width: 50px;
+  vertical-align:middle;
+  border-radius: 50%;
+  background-color: white;
+}
+
+#user-info h4 {
+  display: inline;
+  margin-left: 5px;
+}
+
+#user-settings i {
+  color: rgb(177, 177, 177);
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+#notification-setting{
+  background-color: rgb(142, 218, 252);
+  padding: 5px;
+}
+
+#notification-setting i {
+  padding: 10px;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#notification-description {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+#notification-description a {
+  color: black;
+}
+
+#search-bar {
+  padding: 5px;
+}
+
+#search-bar input{
+  padding: 5px;
+  width: 90%;
+  margin-left: 5px 
+}
+
+#search-bar button {
+  width: 5%;
+  color: black;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.contact {
+  justify-content: space-between;
+}
+
+.contact-message {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#chat-info {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.hour {
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+
+
+
+/* Regole chat */
+
+#user-chat {
+  height: 95vh;
+  width: 70%;
+}
+
+
+
+/* DEBUG */
+
+.container {
+  background-color: aqua;
+}
+
+#users-list {
+  background-color: rgb(255, 255, 255);
+}
+
+#user-chat {
+  background-color: rgb(229, 221, 213);
 }

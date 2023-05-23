@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/index.css">
     <title>Boolzap</title>
   </head>
@@ -14,11 +15,111 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">
+    
 
-      <span>{{ messaggio }}</span>
+      <div id="top-green"></div>
 
-    </div>
+      <!-- Sezione principaale sito -->
+
+      <main>
+
+        <div id="app" class="container row">
+
+          <!-- Lista chat contatti -->
+
+          <div id="users-list">
+            
+            <header id="user-list-top">
+
+              <!-- Ipostazioni applicazione -->
+
+              <div id="setting" class="row">
+
+                <!-- Informazioni utilizzatore  -->
+
+                <div id="user-info">
+
+                  <img class="user-image" :src="user.avatar" alt="Avatar utente">
+                  <h4>{{user.name}}</h4>
+
+                </div>
+
+                <!-- Impostazioni gestione chat -->
+
+                <div id="user-settings">
+
+                  <i class="fa-solid fa-circle-notch"></i>
+                  <i class="fa-solid fa-message"></i>
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                </div>
+
+              </div>
+
+              <!-- Impostazioni ricezione notifiche -->
+
+              <div id="notification-setting" class="row">
+
+                <i class="fa-regular fa-bell-slash"></i>
+
+                <div id="notification-description">
+                  <h5>Ricevi notifiche di nuovi messaggi</h5>
+                  <a href="#">Attiva notifiche desktop</a>
+                </div>
+
+              </div>
+
+              <div id="search-bar">
+
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                
+              </div>
+
+            </header>
+
+            <!-- Lista chat -->
+
+            <div class="contact row" v-for="(contact, idx) in contacts">
+
+              <div class="row">
+                <!-- Immagine profilo contatto -->
+
+                <img class="user-image" :src="contact.avatar" alt="">
+
+                <div id="chat-info">
+
+                  <!-- Nome contatto -->
+
+                  <h4 id="contact-name">{{contact.name}}</h4>
+
+                  <!-- Ultimo messaggio inviato -->
+
+                  <small class="contact-message">{{lastMessage(idx)}}</small>
+
+                </div>
+
+              </div>
+
+              <div class="hour">{{hours(idx)}}
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Chat del contatto selezionato -->
+
+          <div id="user-chat">user chat</div>
+
+
+        
+        </div>
+
+      </main>
+
+    
 
 
     <!-- Javascript -->
