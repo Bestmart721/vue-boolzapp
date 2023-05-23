@@ -221,22 +221,17 @@ createApp({
         this.active = idx;
     },
 
+    // Permetti all'utente di inviare messaggi
+
     addMessage() {
 
-        console.log(this.newMessage);
-        console.log(this.contacts[this.active])
+        // Formattazzione data invio messaggio
 
         const date = new Date();
-        console.log(date);
-        const day = date.getDate();
-        const month = date.getMonth()+ 1;
-        const year = date.getFullYear();
-        const hour = date.getHours();
-        const minute = date.getMinutes();
 
-        const second = date.getSeconds();
+        data = date.getDate() + "/"+ date.getMonth()+ 1 + "/"+ date.getFullYear() + " " + date.getHours() +":"+ date.getMinutes() + ":" + date.getMinutes();
 
-        data = day + "/"+ month + "/"+ year + " " + hour +":"+ minute + ":" + second;
+        // Aggiunta messaggio inviato nell'array dei messaggi
 
         this.contacts[this.active].messages.push({
             date: data,
@@ -244,6 +239,8 @@ createApp({
             status: 'sent'
         })
         this.newMessage = '';
+
+        // Aggiunta messaggio ricevuto nell'array dei messaggi
 
         setTimeout(() => {
             this.contacts[this.active].messages.push({
