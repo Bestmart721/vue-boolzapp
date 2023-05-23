@@ -33,7 +33,7 @@ body {
 /* Regole lista contatti */
 
 #users-list {
-  height: 95vh;
+  height: 96vh;
   width: 30%;
 }
 
@@ -135,7 +135,7 @@ body {
 /* Regole chat */
 
 #user-chat {
-  height: 95vh;
+  height: 96vh;
   width: 70%;
 }
 
@@ -171,6 +171,28 @@ body {
   margin-left: 15px;
   background-color: rgb(255, 255, 255);
 }
+
+/* Rgegole sezione risposta utente */
+
+#answer-section {
+  width: 80%;
+  margin: 5px auto;
+  text-align: center;
+  padding: 5px;
+  font-size: 25px;
+}
+
+#answer-section i {
+  cursor: pointer;
+}
+
+#answer-section input{
+  width: 90%;
+  padding: 5px;
+  margin: 0 20px;
+}
+
+
 
 
 

@@ -7,6 +7,7 @@ createApp({
     return {
 
         active: 0,
+        newMessage: '',
         contacts: [
           {
               name: 'Michele',
@@ -187,7 +188,7 @@ createApp({
 
     // Mostra l'orario dell'ultimo accesso del contatto
 
-    hours(idx) {
+    lastMessageHours(idx) {
 
       const date =  this.contacts[idx].messages.slice(-1)[0].date;
 
@@ -199,13 +200,61 @@ createApp({
       
     },
 
+    // Mostra l'orario di tutti i messaggi nelle chat
+
+    MessageHours(active, idx) {
+
+        const date =  this.contacts[active].messages[idx].date;
+  
+        const dateSplit = date.split(" ");
+  
+        const hourSplit = dateSplit[1].split(":");
+  
+        return hourSplit[0] + ":" + hourSplit[1];
+        
+      },
+
     // Permette di cambiare la chat visualizzata al click
 
     activechat(idx) {
         console.log(idx);
         this.active = idx;
-        console.log(this.active);
+    },
+
+    addMessage() {
+
+        console.log(this.newMessage);
+        console.log(this.contacts[this.active])
+
+        const date = new Date();
+        console.log(date);
+        const day = date.getDate();
+        const month = date.getMonth()+ 1;
+        const year = date.getFullYear();
+        const hour = date.getHours();
+        const minute = date.getMinutes();
+
+        const second = date.getSeconds();
+
+        data = day + "/"+ month + "/"+ year + " " + hour +":"+ minute + ":" + second;
+
+        this.contacts[this.active].messages.push({
+            date: data,
+            message: this.newMessage,
+            status: 'sent'
+        })
+        this.newMessage = '';
+
+        setTimeout(() => {
+            this.contacts[this.active].messages.push({
+                date: data,
+                message: 'Ok',
+                status: 'received'
+            })
+        }, 1000);
+       
     }
+    
   }
   
 }).mount("#app")
