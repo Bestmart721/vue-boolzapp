@@ -8,6 +8,7 @@ createApp({
 
         active: 0,
         newMessage: '',
+        search: '',
         contacts: [
           {
               name: 'Michele',
@@ -183,12 +184,19 @@ createApp({
 
     // Mostra l'ultimo messaggio della chat
     lastMessage(idx) {
-      return this.contacts[idx].messages.slice(-1)[0].message;
+        
+        if (this.contacts[idx].messages.length > 0 ) {
+            return this.contacts[idx].messages.slice(-1)[0].message;
+        } else {
+            return 'nessun messaggio';
+        }
     },
 
     // Mostra l'orario dell'ultimo accesso del contatto
 
     lastMessageHours(idx) {
+    
+    if(this.contacts[idx].messages.length > 0) {
 
       const date =  this.contacts[idx].messages.slice(-1)[0].date;
 
@@ -197,6 +205,8 @@ createApp({
       const hourSplit = dateSplit[1].split(":");
 
       return hourSplit[0] + ":" + hourSplit[1];
+
+    }
       
     },
 
@@ -217,7 +227,6 @@ createApp({
     // Permette di cambiare la chat visualizzata al click
 
     activechat(idx) {
-        console.log(idx);
         this.active = idx;
     },
 
@@ -228,8 +237,14 @@ createApp({
         // Formattazzione data invio messaggio
 
         const date = new Date();
+        let day = addZero(date.getDate())
+        let month = addZero(date.getMonth()+1);
+        let year = addZero(date.getFullYear());
+        let h = addZero(date.getHours());
+        let m = addZero(date.getMinutes());
+        let s = addZero(date.getSeconds());
 
-        data = date.getDate() + "/"+ date.getMonth()+ 1 + "/"+ date.getFullYear() + " " + date.getHours() +":"+ date.getMinutes() + ":" + date.getMinutes();
+        data = day + "/"+ month + "/"+ year+ " " + h +":"+ m + ":" + s;
 
         // Aggiunta messaggio inviato nell'array dei messaggi
 
@@ -239,6 +254,7 @@ createApp({
             status: 'sent'
         })
         this.newMessage = '';
+        console.log(this.contacts[this.active].messages);
 
         // Aggiunta messaggio ricevuto nell'array dei messaggi
 
@@ -250,8 +266,45 @@ createApp({
             })
         }, 1000);
        
-    }
+    },
+
+    // Permetti all'utente di cercare tra i contatti
+
+    filteredUsers() {
+        
+        const find = (this.search).toUpperCase();
+        
+        for (let i = 0; i < this.contacts.length; i++) {
+            const name = (this.contacts[i].name).toUpperCase();
+            if(!name.includes(find)) {
+                this.contacts[i].visible = false;
+            } else {
+                this.contacts[i].visible = true;
+            }
+
+        }
+        
+    },
+
+    // Permetti all'utente di eliminare i messaggi inviati
+
+    deleteMessage(idx) {
+        console.log(this.contacts[this.active].messages[idx]);
+
+        if(this.contacts[this.active].messages[idx].status === 'sent') {
+
+            return this.contacts[this.active].messages.splice(idx, 1);
+
+        }
+        
+    }  
     
-  }
+  },
   
 }).mount("#app")
+
+function addZero(i) {
+    if (i < 10) {i = "0" + i}
+    return i;
+  }
+  
