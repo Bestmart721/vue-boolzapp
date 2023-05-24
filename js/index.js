@@ -269,25 +269,6 @@ createApp({
        
     },
 
-    // Permetti all'utente di cercare tra i contatti
-
-    // filteredUsers() {
-        
-    //     const find = (this.search).toUpperCase();
-       
-        
-    //     for (let i = 0; i < this.contacts.length; i++) {
-    //         const name = (this.contacts[i].name).toUpperCase();
-    //         if(!name.includes(find)) {
-    //             this.contacts[i].visible = false;
-    //         } else {
-    //             this.contacts[i].visible = true;
-    //         }
-
-    //     }
-        
-    // },
-
     // Permetti all'utente di eliminare i messaggi inviati
 
     deleteMessage(idx) {
@@ -323,7 +304,11 @@ createApp({
   },
 
   computed: {
+
+    // Permette di effettuare la ricerca nei contatti
+
     filteredUsers() {
+        
         if(this.search.length > 0) {
             return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
             
