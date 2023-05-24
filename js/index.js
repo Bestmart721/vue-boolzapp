@@ -271,22 +271,22 @@ createApp({
 
     // Permetti all'utente di cercare tra i contatti
 
-    filteredUsers() {
+    // filteredUsers() {
         
-        const find = (this.search).toUpperCase();
+    //     const find = (this.search).toUpperCase();
        
         
-        for (let i = 0; i < this.contacts.length; i++) {
-            const name = (this.contacts[i].name).toUpperCase();
-            if(!name.includes(find)) {
-                this.contacts[i].visible = false;
-            } else {
-                this.contacts[i].visible = true;
-            }
+    //     for (let i = 0; i < this.contacts.length; i++) {
+    //         const name = (this.contacts[i].name).toUpperCase();
+    //         if(!name.includes(find)) {
+    //             this.contacts[i].visible = false;
+    //         } else {
+    //             this.contacts[i].visible = true;
+    //         }
 
-        }
+    //     }
         
-    },
+    // },
 
     // Permetti all'utente di eliminare i messaggi inviati
 
@@ -318,8 +318,20 @@ createApp({
             return 'Ultimo accesso alle: ' + hourSplit[0] + ":" + hourSplit[1];
       
           }
-      }
+      },
     
+  },
+
+  computed: {
+    filteredUsers() {
+        if(this.search.length > 0) {
+            return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
+            
+        } else {
+            return this.contacts;
+        }
+        
+    }
   }
   
 }).mount("#app")

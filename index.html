@@ -72,7 +72,7 @@
               <div id="search-bar">
 
                 <button type="submit"><i class="fa fa-search"></i></button>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup.enter="filteredUsers">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search" >
                 
               </div>
 
@@ -80,7 +80,7 @@
 
             <!-- Lista chat -->
 
-            <div class="contact row" v-for="(contact, idx) in contacts" @click="activechat(idx)">
+            <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
 
               <div v-if="contact.visible" class="row">
 
