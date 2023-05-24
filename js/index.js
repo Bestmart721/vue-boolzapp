@@ -5,7 +5,9 @@ createApp({
   data() {
 
     return {
-
+        write: false,
+        acces: false,
+        status: false,
         active: 0,
         newMessage: '',
         search: '',
@@ -277,18 +279,34 @@ createApp({
             const idx = Math.floor(Math.random() * this.answer.length)
             const message = this.answer[idx];
 
+            this.acces = true;
+            this.write = true;
+
             setTimeout(() => {
+
                 this.contacts[this.active].messages.push({
                     date: data,
                     message: message,
                     status: 'received'
                 })
+
+                this.write = false;
+                this.status = true;
+
             }, 1000);
+
+            setInterval(() => {
+
+                this.status = false;
+                this.write = false;
+                this.acces = false;
+
+            }, 6000);
+
         }
 
         this.newMessage = '';
 
-       
     },
 
     // Permetti all'utente di eliminare i messaggi inviati

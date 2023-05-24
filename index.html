@@ -129,7 +129,9 @@
                   <div>
 
                     <h4>{{contacts[active].name}}</h4>
-                    <small>{{lastAcces(active)}}</small>
+                    <small :class="acces ? 'hide' : 'show'">{{lastAcces(active)}}</small>
+                    <small class="writing" :class="write ? 'show' : 'hide'">sta scrivendo</small>
+                    <small class="writing" :class="status ? 'show' : 'hide'">Online</small>
 
                   </div>
                   

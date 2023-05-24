@@ -222,3 +222,15 @@ body {
     width: 40%;
   }
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.status .writing {
+  display: none;
+}
