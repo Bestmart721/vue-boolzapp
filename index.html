@@ -122,12 +122,20 @@
 
                 <!-- Informazioni contatto  -->
 
-                <div id="user-info">
+                <div id="user-info" class="row">
 
                   <img class="user-image" :src="contacts[active].avatar" alt="Avatar utente">
-                  <h4>{{contacts[active].name}}</h4>
+
+                  <div>
+
+                    <h4>{{contacts[active].name}}</h4>
+                    <small>{{lastAcces(active)}}</small>
+
+                  </div>
+                  
 
                 </div>
+
 
                 <!-- Impostazioni gestione chat -->
 
@@ -155,7 +163,7 @@
 
                   <!-- Testo del messaggio -->
 
-                  <div> 
+                  <div class="message-text"> 
                     {{message.message}}
                   </div>
 

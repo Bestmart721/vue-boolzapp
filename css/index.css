@@ -33,19 +33,21 @@ body {
 /* Regole lista contatti */
 
 #users-list {
-  height: 96vh;
+  height: 95vh;
   width: 30%;
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
 }
 
 #user-list-top {
   background-color: rgb(234, 234, 234);
+  margin-bottom: 10px;
 }
 
 #setting {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border-right: 1px solid black ;
 }
 
 .user-image {
@@ -54,7 +56,13 @@ body {
   border-radius: 50%;
 }
 
-#user-info h4 {
+#user-list-top #user-info div{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+#user-info > h4 {
   display: inline;
   margin-left: 5px;
 }
@@ -115,9 +123,9 @@ body {
 }
 
 .last-contact-message {
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow:ellipsis; */
+  font-size: 10px;
 }
 
 #chat-info {
@@ -135,17 +143,19 @@ body {
 /* Regole chat */
 
 #user-chat {
-  height: 96vh;
+  height: 95vh;
   width: 70%;
+  background-color: rgb(243, 238, 234);
 }
 
 #chat {
   width: 95%;
   margin: 0 auto;
-  height: 85vh;
+  height: 77vh;
   border-radius: 5px;
   border-top: 0px;
   background-color: rgb(229, 221, 213);
+  overflow: auto;
 }
 
 .message {
@@ -153,8 +163,12 @@ body {
   flex-direction: column;
 }
 
+.message-text {
+  overflow: hidden;
+}
+
 .contact-message, .user-message {
-  margin-top: 20px;
+  margin: 10px 0;
   border-radius: 10px;
   padding: 5px;
   width: 30%;
@@ -175,10 +189,9 @@ body {
 /* Rgegole sezione risposta utente */
 
 #answer-section {
-  width: 80%;
-  margin: 5px auto;
+  width: 90%;
+  margin: 10px auto;
   text-align: center;
-  padding: 5px;
   font-size: 25px;
 }
 
@@ -187,25 +200,25 @@ body {
 }
 
 #answer-section input{
-  width: 90%;
+  width: 70%;
   padding: 5px;
   margin: 0 20px;
 }
 
+@media screen and (max-width: 1000px){
 
+  .container {
+    width: 100%;
+  }
 
-
-
-/* DEBUG */
-
-.container {
-  background-color: aqua;
+  #users-list {
+    width: 35%;
+  }
 }
 
-#users-list {
-  background-color: rgb(255, 255, 255);
-}
+@media screen and (max-width: 800px){
 
-#user-chat {
-  background-color: rgb(243, 238, 234);
+  #users-list {
+    width: 40%;
+  }
 }

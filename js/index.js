@@ -170,7 +170,8 @@ createApp({
                       status: 'received'
                   }
               ],
-          }
+          },
+          
       ],
       user: {
         name: 'Daniele',
@@ -273,6 +274,7 @@ createApp({
     filteredUsers() {
         
         const find = (this.search).toUpperCase();
+       
         
         for (let i = 0; i < this.contacts.length; i++) {
             const name = (this.contacts[i].name).toUpperCase();
@@ -297,11 +299,32 @@ createApp({
 
         }
         
-    }  
+    }, 
+
+    // Mosta l'orario di ultimo accesso del contatto
+
+    lastAcces(idx) {
+
     
-  },
+        if(this.contacts[idx].messages.length > 0) {
+    
+            const date =  this.contacts[idx].messages.slice(-1)[0].date;
+      
+            const dateSplit = date.split(" ");
+            
+      
+            const hourSplit = dateSplit[1].split(":");
+      
+            return 'Ultimo accesso alle: ' + hourSplit[0] + ":" + hourSplit[1];
+      
+          }
+      }
+    
+  }
   
 }).mount("#app")
+
+// Aggiunge uno zero al valore di giorno/mese/anno ora/minuto dei messaggi inviati (es. 5/3/2023 1:2 => 05/03/2023 01:02) 
 
 function addZero(i) {
     if (i < 10) {i = "0" + i}
