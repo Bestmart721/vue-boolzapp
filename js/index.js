@@ -249,23 +249,32 @@ createApp({
 
         // Aggiunta messaggio inviato nell'array dei messaggi
 
-        this.contacts[this.active].messages.push({
-            date: data,
-            message: this.newMessage,
-            status: 'sent'
-        })
-        this.newMessage = '';
-        console.log(this.contacts[this.active].messages);
+        const control = isSameCharacter(this.newMessage);
+        console.log(control);
 
-        // Aggiunta messaggio ricevuto nell'array dei messaggi
+        // Controlla se il messaggio inserito non sia vuoto o composto da soli spazi
 
-        setTimeout(() => {
+        if(this.newMessage.length > 0 && !control) {
+            
             this.contacts[this.active].messages.push({
                 date: data,
-                message: 'Ok',
-                status: 'received'
+                message: this.newMessage,
+                status: 'sent'
             })
-        }, 1000);
+
+            // Aggiunta messaggio ricevuto nell'array dei messaggi
+
+            setTimeout(() => {
+                this.contacts[this.active].messages.push({
+                    date: data,
+                    message: 'Ok',
+                    status: 'received'
+                })
+            }, 1000);
+        }
+
+        this.newMessage = '';
+
        
     },
 
@@ -308,7 +317,7 @@ createApp({
     // Permette di effettuare la ricerca nei contatti
 
     filteredUsers() {
-        
+
         if(this.search.length > 0) {
             return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
             
@@ -326,5 +335,11 @@ createApp({
 function addZero(i) {
     if (i < 10) {i = "0" + i}
     return i;
+  }
+
+//   Controlla se il messaggio inserito è composto da soli spazi
+
+  function isSameCharacter(str) {
+    return str.split('').every(char => char === " ");
   }
   
