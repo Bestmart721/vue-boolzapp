@@ -176,7 +176,17 @@ createApp({
       user: {
         name: 'Daniele',
         avatar: './img/user_avatar.png',
-      }
+      },
+      answer: 
+      [
+        'Va bene',
+        'Non sono d\'accordo',
+        'Se ho fortuna la mia ricerca non sarà vana, attendi il mio arrivo alla prima luce del quinto giorno. All\'alba, guarda ad Est.',
+        'Dov\'era Gondor quando cadde l\'Ovestfalda!?',
+        'Tu non puoi passare!',
+        'Mi sento sottile, quasi stiracchiato, come il burro spalmato su troppo pane.'
+      ]
+        
     }
 
   },
@@ -262,12 +272,15 @@ createApp({
                 status: 'sent'
             })
 
-            // Aggiunta messaggio ricevuto nell'array dei messaggi
+            // Rispondi al messaggio
+            
+            const idx = Math.floor(Math.random() * this.answer.length)
+            const message = this.answer[idx];
 
             setTimeout(() => {
                 this.contacts[this.active].messages.push({
                     date: data,
-                    message: 'Ok',
+                    message: message,
                     status: 'received'
                 })
             }, 1000);

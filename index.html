@@ -183,7 +183,7 @@
 
               <i class="fa-regular fa-face-smile"></i>
               <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
-              <i :class="newMessage.length > 0 ? 'fa-solid fa-paper-plane' : 'fa-solid fa-microphone'"></i>
+              <i :class="newMessage.length > 0 ? 'fa-solid fa-paper-plane' : 'fa-solid fa-microphone'" @click="addMessage"></i>
               
             </footer>
             
