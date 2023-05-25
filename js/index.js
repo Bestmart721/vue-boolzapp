@@ -472,3 +472,23 @@ function addZero(i) {
   function isSameCharacter(str) {
     return str.split('').every(char => char === " ");
   }
+
+  // Incrementa la dimensione del font
+
+  function increaseFontSize() {
+    var element = document.getElementById('main-app');
+    var currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+    element.style.fontSize = (currentSize + 2) + "px";
+  }
+  
+  // Decrementa la dimensione del font
+
+  function decreaseFontSize() {
+    var element = document.getElementById('main-app');
+    var currentSize = parseFloat(window.getComputedStyle(element).fontSize);
+    if ( currentSize > 10) {
+
+        element.style.fontSize = (currentSize - 2) + "px";
+    }
+    
+  }

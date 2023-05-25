@@ -48,6 +48,7 @@ body {
 }
 
 #main-app {
+  font-size: 15px;
   width: 100%;
   animation: showAnimation .5s;
   animation-fill-mode: forwards;
