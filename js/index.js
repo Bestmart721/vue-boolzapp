@@ -5,6 +5,7 @@ createApp({
   data() {
 
     return {
+        showSplash: true,
         write: false,
         acces: false,
         status: false,
@@ -211,7 +212,6 @@ createApp({
 
             } else {
                 return msg;
-                
             }
 
         } else {
@@ -441,6 +441,14 @@ createApp({
         }
         
     }
+  },
+
+  mounted() {
+
+    setTimeout(() => {
+        this.showSplash = false;
+        console.log("peovs");
+      }, 1000)
   }
 
   

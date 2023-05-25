@@ -25,11 +25,17 @@
 
         <div id="app" class="container row">
 
-          <!-- Lista chat contatti -->
+          <div id="splash-screen" v-if="showSplash">
+            <h1>Benvenuto su boolzapp</h1>
+          </div>
 
-          <div id="users-list">
+          <div id="main-app" class="row" v-else>
+
+            <!-- Lista chat contatti -->
+
+            <div id="users-list">
             
-            <header id="user-list-top">
+              <header id="user-list-top">
 
               <!-- Ipostazioni applicazione -->
 
@@ -108,13 +114,13 @@
 
             </div>
 
-          </div>
+            </div>
 
-          <!-- Chat del contatto selezionato -->
+            <!-- Chat del contatto selezionato -->
 
-          <div id="user-chat">
+            <div id="user-chat">
 
-            <header id="user-list-top">
+              <header id="user-list-top">
 
               <!-- Ipostazioni chat -->
 
@@ -198,6 +204,8 @@
               
             </footer>
             
+            </div>
+
           </div>
 
         

@@ -30,6 +30,26 @@ body {
   transform: translate(-50%); 
 }
 
+#splash-screen {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#splash-screen h1 {
+  animation: hideAnimation 1s;
+  animation-fill-mode: forwards;
+}
+
+#main-app {
+  width: 100%;
+  animation: showAnimation .5s;
+  animation-fill-mode: forwards;
+}
+
 /* Regole lista contatti */
 
 #users-list {
@@ -234,6 +254,40 @@ body {
 }
 
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline-block;
+}
+
+.status .writing {
+  display: none;
+}
+
+
+/* Animazione splashscreen */
+
+@keyframes hideAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 /* Regole responsive */
 
 @media screen and (max-width: 1000px){
@@ -254,14 +308,3 @@ body {
   }
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: inline-block;
-}
-
-.status .writing {
-  display: none;
-}
