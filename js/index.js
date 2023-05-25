@@ -9,6 +9,7 @@ createApp({
         acces: false,
         status: false,
         viewOptions: false,
+        nameFound: false,
         active: 0,
         newMessage: '',
         search: '',
@@ -365,7 +366,40 @@ createApp({
 
         this.contacts.splice(this.active, 1);
 
+        if( this.active === this.contacts.length ) {
+            this.active -= 1;
+        }
+
         this.viewOptions = false;
+    },
+
+    newConversation() {
+
+        // console.log(this.search);
+        
+        for(let i = 0; i < this.contacts.length; i++) {
+
+            if((this.contacts[i].name).toLowerCase() === (this.search).toLowerCase()) {
+
+                this.nameFound = true;
+                console.log("trovato");
+
+            }
+
+        }
+
+        if((this.search.length > 0) && (this.nameFound === false) ) {
+            this.contacts.push( {
+                name: this.search,
+                avatar: './img/avatar_5.png',
+                visible: true,
+                messages: []                
+            })
+        }
+
+        this.search = '';
+        this.active = this.contacts.length-1;
+
     }
     
   },
