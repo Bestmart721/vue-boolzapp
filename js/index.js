@@ -6,6 +6,7 @@ createApp({
 
     return {
         showSplash: true,
+        defaultPage: true,
         write: false,
         acces: false,
         status: false,
@@ -199,6 +200,7 @@ createApp({
   methods: {
 
     // Mostra l'ultimo messaggio della chat
+
     lastMessage(idx) {
     
         if (this.contacts[idx].messages.length > 0 ) {
@@ -254,6 +256,7 @@ createApp({
     // Permette di cambiare la chat visualizzata al click
 
     activechat(idx) {
+        this.defaultPage = false;
         this.active = idx;
     },
 
@@ -444,6 +447,8 @@ createApp({
   },
 
   mounted() {
+
+    // timer per la disattivazione della splash screen e apparizione della web app
 
     setTimeout(() => {
         this.showSplash = false;

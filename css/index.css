@@ -30,6 +30,8 @@ body {
   transform: translate(-50%); 
 }
 
+/* Regole splash screen */
+
 #splash-screen {
   width: 80%;
   margin: 0 auto;
@@ -40,6 +42,7 @@ body {
 }
 
 #splash-screen h1 {
+  font-size: 100px;
   animation: hideAnimation 1s;
   animation-fill-mode: forwards;
 }
@@ -144,7 +147,6 @@ body {
 
 .last-contact-message {
   overflow: hidden;
-  /* text-overflow:ellipsis; */
   font-size: 10px;
 }
 
@@ -166,6 +168,19 @@ body {
   height: 95vh;
   width: 70%;
   background-color: rgb(243, 238, 234);
+}
+
+/* Regole deafault screen */
+
+#default-page {
+  background-color: rgb(229, 221, 213);
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #chat {
@@ -307,4 +322,3 @@ body {
     width: 40%;
   }
 }
-

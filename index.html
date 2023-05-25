@@ -25,9 +25,13 @@
 
         <div id="app" class="container row">
 
+          <!-- schermata di benvenuto -->
+
           <div id="splash-screen" v-if="showSplash">
             <h1>Benvenuto su boolzapp</h1>
           </div>
+
+          <!-- schermata web app -->
 
           <div id="main-app" class="row" v-else>
 
@@ -116,93 +120,102 @@
 
             </div>
 
+            <!-- Pagina di default -->
+
+            <div id="default-page" v-if="defaultPage">
+                <h1>Seleziona una chat per iniziare a conversare</h1>
+            
+            </div>
+
             <!-- Chat del contatto selezionato -->
 
-            <div id="user-chat">
+            <div v-else id="user-chat">
+
+              <!-- Pagina della chat -->
 
               <header id="user-list-top">
 
-              <!-- Ipostazioni chat -->
-
-              <div id="setting" class="row">
-
-                <!-- Informazioni contatto  -->
-
-                <div id="user-info" class="row">
-
-                  <img class="user-image" :src="contacts[active].avatar" alt="Avatar utente">
-
-                  <div>
-
-                    <h4>{{contacts[active].name}}</h4>
-                    <small :class="acces ? 'hide' : 'show'">{{lastAcces(active)}}</small>
-                    <small class="writing" :class="write ? 'show' : 'hide'">sta scrivendo</small>
-                    <small class="writing" :class="status ? 'show' : 'hide'">Online</small>
-
+                <!-- Ipostazioni chat -->
+    
+                <div id="setting" class="row">
+    
+                  <!-- Informazioni contatto  -->
+    
+                  <div id="user-info" class="row">
+    
+                    <img class="user-image" :src="contacts[active].avatar" alt="Avatar utente">
+    
+                    <div>
+    
+                      <h4>{{contacts[active].name}}</h4>
+                      <small :class="acces ? 'hide' : 'show'">{{lastAcces(active)}}</small>
+                        <small class="writing" :class="write ? 'show' : 'hide'">sta scrivendo</small>
+                        <small class="writing" :class="status ? 'show' : 'hide'">Online</small>
+    
+                      </div>
+                      
+    
+                    </div>
+    
+    
+                    <!-- Impostazioni gestione chat -->
+    
+                    <div id="user-settings">
+    
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <i class="fa-solid fa-paperclip"></i>
+                      <i class="fa-solid fa-ellipsis-vertical" @click.stop="showSettins"></i>
+    
+                    </div>
+    
+                    <div id="chat-option" :class="viewOptions ? 'show' : 'hide'
+                    ">
+                      <ul>
+                        <li @click.stop="deleteAllMessages">Elimina tutti i messaggi</li>
+                        <li @click.stop="delelteChat">Elimina la chat</li>
+                      </ul>
+                    </div>
+    
                   </div>
                   
-
-                </div>
-
-
-                <!-- Impostazioni gestione chat -->
-
-                <div id="user-settings">
-
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <i class="fa-solid fa-paperclip"></i>
-                  <i class="fa-solid fa-ellipsis-vertical" @click.stop="showSettins"></i>
-
-                </div>
-
-                <div id="chat-option" :class="viewOptions ? 'show' : 'hide'
-                ">
-                  <ul>
-                    <li @click.stop="deleteAllMessages">Elimina tutti i messaggi</li>
-                    <li @click.stop="delelteChat">Elimina la chat</li>
-                  </ul>
-                </div>
-
-              </div>
-              
-            </header>
-
-            <!-- Chat del contatto -->
-
-            <div id="chat" ref="scroll">
-
-              <!-- Messaggi nella chat -->
-
-              <div class="message"  v-for="(message, idx) in contacts[active].messages">
-
-                
-                <div :class="message.status == 'received' ? 'contact-message' : 'user-message'" class="row" @click="deleteMessage(idx)">
-
-                  <!-- Testo del messaggio -->
-
-                  <div class="message-text"> 
-                    {{message.message}}
+                </header>
+    
+                <!-- Chat del contatto -->
+    
+                <div id="chat" ref="scroll">
+    
+                  <!-- Messaggi nella chat -->
+    
+                  <div class="message"  v-for="(message, idx) in contacts[active].messages">
+    
+                    
+                    <div :class="message.status == 'received' ? 'contact-message' : 'user-message'" class="row" @click="deleteMessage(idx)">
+    
+                      <!-- Testo del messaggio -->
+    
+                      <div class="message-text"> 
+                        {{message.message}}
+                      </div>
+    
+                      <!-- Orario di invio del messaggio -->
+    
+                      <div>
+                        <small>{{MessageHours(active, idx)}}</small>
+                      </div>
+                      
+                    </div>
+    
                   </div>
-
-                  <!-- Orario di invio del messaggio -->
-
-                  <div>
-                    <small>{{MessageHours(active, idx)}}</small>
+    
                   </div>
+    
+                  <footer id="answer-section">
+    
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
+                    <i :class="newMessage.length > 0 ? 'fa-solid fa-paper-plane' : 'fa-solid fa-microphone'" @click="addMessage"></i>
                   
-                </div>
-
-              </div>
-
-            </div>
-
-            <footer id="answer-section">
-
-              <i class="fa-regular fa-face-smile"></i>
-              <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage">
-              <i :class="newMessage.length > 0 ? 'fa-solid fa-paper-plane' : 'fa-solid fa-microphone'" @click="addMessage"></i>
-              
-            </footer>
+                  </footer>
             
             </div>
 
