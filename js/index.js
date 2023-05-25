@@ -444,6 +444,7 @@ createApp({
         }
 
         this.viewOptions = false;
+        this.defaultPage = true;
     },
 
     newConversation() {
