@@ -21,7 +21,7 @@
 
       <!-- Sezione principaale sito -->
 
-      <main ">
+      <main>
 
         <div id="app" class="container row">
 
@@ -34,15 +34,6 @@
           <!-- schermata web app -->
 
           <div id="main-app" class="row" v-else>
-
-            <!-- Selettore della dimensione del font  -->
-
-            <div id="font-size">
-
-              <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
-              <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
-  
-            </div>
 
             <!-- Lista chat contatti -->
 
@@ -95,37 +86,47 @@
                 
               </div>
 
-            </header>
+              </header>
 
-            <!-- Lista chat -->
+              <!-- Lista chat -->
 
-            <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
+              <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
 
-              <div v-if="contact.visible" class="row">
+                <div v-if="contact.visible" class="row">
 
-                <!-- Immagine profilo contatto -->
+                  <!-- Immagine profilo contatto -->
 
-                <img class="user-image" :src=" contact.avatar" alt="">
+                  <img class="user-image" :src=" contact.avatar" alt="">
 
-                <div id="chat-info">
+                  <div id="chat-info">
 
-                  <!-- Nome contatto -->
+                    <!-- Nome contatto -->
 
-                  <h4 id="contact-name">{{contact.name}}</h4>
+                    <h4 id="contact-name">{{contact.name}}</h4>
 
-                  <!-- Ultimo messaggio inviato -->
+                    <!-- Ultimo messaggio inviato -->
 
-                  <small class="last-contact-message">{{lastMessage(idx)}}</small>
+                    <small class="last-contact-message">{{lastMessage(idx)}}</small>
+
+                  </div>
+
+                </div>
+
+                <div v-if="contact.visible" class="hour">{{lastMessageHours(idx)}}
 
                 </div>
 
               </div>
 
-              <div v-if="contact.visible" class="hour">{{lastMessageHours(idx)}}
+                                <!-- Selettore della dimensione del font  -->
 
-              </div>
+                  <div id="font-size">
 
-            </div>
+                    <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
+                    <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
+  
+                  </div>
+
 
             </div>
 
@@ -192,6 +193,12 @@
                 <!-- Chat del contatto -->
     
                 <div id="chat" ref="scroll">
+
+                  <div id="go-to-contact" :class="!defaultPage && displayMode === 'mobile'? 'show' : 'hide' ">
+
+                    <button onclick="turnToContact()"><i class="fa-solid fa-arrow-left"></i></button>
+                     
+                  </div>
     
                   <!-- Messaggi nella chat -->
     
@@ -225,18 +232,23 @@
                     <i :class="newMessage.length > 0 ? 'fa-solid fa-paper-plane' : 'fa-solid fa-microphone'" @click="addMessage"></i>
                   
                   </footer>
+
+                  <!-- Selettore della dimensione del font  -->
+
+                  <div id="font-size" :class="displayMode === 'mobile' ?'show':'hide'">
+
+                    <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
+                    <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
+  
+                  </div>
             
             </div>
 
           </div>
-
         
         </div>
 
       </main>
-
-    
-
 
     <!-- Javascript -->
 

@@ -7,6 +7,7 @@ createApp({
     return {
         showSplash: true,
         defaultPage: true,
+        displayMode: 'desktop',
         write: false,
         acces: false,
         status: false,
@@ -199,6 +200,22 @@ createApp({
 
   methods: {
 
+
+    setDefaultPage() {
+        var mainApp = document.getElementById('main-app');
+        var currentWidth = parseFloat(window.getComputedStyle(mainApp).width);
+    
+        console.log("eccomi");
+        console.log(currentWidth);
+    
+        if( currentWidth <= 400) {
+    
+            this.defaultPage = false;
+            
+        }
+    
+    },
+
     // Mostra l'ultimo messaggio della chat
 
     lastMessage(idx) {
@@ -256,8 +273,39 @@ createApp({
     // Permette di cambiare la chat visualizzata al click
 
     activechat(idx) {
+
         this.defaultPage = false;
         this.active = idx;
+
+        var mainApp = document.getElementById('main-app');
+        var currentWidth = parseFloat(window.getComputedStyle(mainApp).width);
+
+        if( currentWidth <= 400) {
+            this.displayMode = 'mobile';
+            var userList = document.getElementById('users-list');
+            userList.style.display = 'none';
+            
+            setTimeout(() => {
+
+                var userChat = document.getElementById('user-chat');
+                userChat.style.display = 'inline-block'; 
+                userChat.style.width = '100%'; 
+
+            }, 1);
+            
+        } else {
+            this.displayMode = 'desktop';
+            var userList = document.getElementById('users-list');
+            userList.style.display = 'inline-bloc';
+            
+            setTimeout(() => {
+
+                var userChat = document.getElementById('user-chat');
+                userChat.style.display = 'inline-block'; 
+                userChat.style.width = '70%'; 
+
+            }, 1);
+        }
     },
 
     // Permetti all'utente di inviare messaggi
@@ -490,5 +538,17 @@ function addZero(i) {
 
         element.style.fontSize = (currentSize - 2) + "px";
     }
+  }
+
+  function turnToContact() {
     
+    var userChat = document.getElementById('user-chat');
+    userChat.style.display = 'none'; 
+    
+    setTimeout(() => {
+        var userList = document.getElementById('users-list');
+        userList.style.display = 'inline-block'; 
+    }, 1);
+    
+
   }

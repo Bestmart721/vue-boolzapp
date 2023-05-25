@@ -48,7 +48,6 @@ body {
 }
 
 #main-app {
-  font-size: 15px;
   width: 100%;
   animation: showAnimation .5s;
   animation-fill-mode: forwards;
@@ -151,6 +150,16 @@ body {
   font-size: 10px;
 }
 
+#font-size {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+#font-size button {
+  margin-left: 5px;
+}
+
 #chat-info {
   margin-top: 10px;
   margin-left: 10px;
@@ -194,6 +203,14 @@ body {
   overflow: auto;
 }
 
+#go-to-contact {
+  margin-top: 20px;
+}
+
+#go-to-contact i{
+  font-size: 20px;
+}
+
 /* Regole opzioni gestione chat */
 
 #chat-option {
@@ -234,7 +251,7 @@ body {
   margin: 10px 0;
   border-radius: 10px;
   padding: 5px;
-  width: 30%;
+  width: 35%;
   justify-content: space-between;
 }
 
@@ -321,5 +338,28 @@ body {
 
   #users-list {
     width: 40%;
+  }
+
+  #user-chat {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 400px){
+
+  #users-list {
+    width: 100%;
+  }
+
+  #user-chat {
+    display: none;
+  }
+
+  #default-page {
+    display: none;
+  }
+
+  #splash-screen h1 {
+    font-size: 50px;
   }
 }
