@@ -8,6 +8,7 @@
 
 body {
   background-color: rgb(213, 219, 217);
+  font-size: 11px;
 }
 
 .row {
@@ -58,8 +59,12 @@ body {
 #users-list {
   height: 95vh;
   width: 30%;
-  overflow: auto;
   background-color: rgb(255, 255, 255);
+}
+
+#list {
+  overflow: auto;
+  height: 60vh;
 }
 
 #user-list-top {
@@ -150,6 +155,8 @@ body {
   font-size: 10px;
 }
 
+/* Regole ridimensionamento font utente */
+
 #font-size {
   margin-left: 10px;
   margin-top: 10px;
@@ -185,7 +192,7 @@ body {
 #default-page {
   background-color: rgb(229, 221, 213);
   height: 100%;
-  width: 100%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -196,7 +203,7 @@ body {
 #chat {
   width: 95%;
   margin: 0 auto;
-  height: 77vh;
+  height: 75vh;
   border-radius: 5px;
   border-top: 0px;
   background-color: rgb(229, 221, 213);
@@ -322,6 +329,13 @@ body {
 
 
 /* Regole responsive */
+
+@media screen and (min-width: 1000px){
+
+  body {
+    font-size: 15px;
+  }
+}
 
 @media screen and (max-width: 1000px){
 

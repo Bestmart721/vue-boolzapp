@@ -89,40 +89,46 @@
               </header>
 
               <!-- Lista chat -->
+              <div id="list"> 
 
-              <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
+                <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
 
-                <div v-if="contact.visible" class="row">
-
-                  <!-- Immagine profilo contatto -->
-
-                  <img class="user-image" :src=" contact.avatar" alt="">
-
-                  <div id="chat-info">
-
-                    <!-- Nome contatto -->
-
-                    <h4 id="contact-name">{{contact.name}}</h4>
-
-                    <!-- Ultimo messaggio inviato -->
-
-                    <small class="last-contact-message">{{lastMessage(idx)}}</small>
-
+                  <div v-if="contact.visible" class="row">
+  
+                    <!-- Immagine profilo contatto -->
+  
+                    <img class="user-image" :src=" contact.avatar" alt="">
+  
+                    <div id="chat-info">
+  
+                      <!-- Nome contatto -->
+  
+                      <h4 id="contact-name">{{contact.name}}</h4>
+  
+                      <!-- Ultimo messaggio inviato -->
+  
+                      <small class="last-contact-message">{{lastMessage(idx)}}</small>
+  
+                    </div>
+  
                   </div>
-
-                </div>
-
-                <div v-if="contact.visible" class="hour">{{lastMessageHours(idx)}}
-
+  
+                  <div v-if="contact.visible" class="hour">
+  
+                    {{lastMessageHours(idx)}}
+  
+                  </div>
+  
                 </div>
 
               </div>
+              
 
-                                <!-- Selettore della dimensione del font  -->
+              <!-- Selettore della dimensione del font  -->
 
-                  <div id="font-size">
+              <div id="font-size">
 
-                    <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
+                <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
                     <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
   
                   </div>
