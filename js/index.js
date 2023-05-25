@@ -199,9 +199,21 @@ createApp({
 
     // Mostra l'ultimo messaggio della chat
     lastMessage(idx) {
-        
+    
         if (this.contacts[idx].messages.length > 0 ) {
-            return this.contacts[idx].messages.slice(-1)[0].message;
+
+            let msg =  this.contacts[idx].messages.slice(-1)[0].message;
+
+            // mostra solo i primi 30 caratteri del messaggio
+            if( msg.length > 30) {
+                msg = msg.slice(0, 30) + '...';
+                return msg;
+
+            } else {
+                return msg;
+                
+            }
+
         } else {
             return 'nessun messaggio';
         }
@@ -276,6 +288,11 @@ createApp({
                 status: 'sent'
             })
 
+            
+            this.$nextTick(() => {
+                this.$refs.scroll.lastElementChild.scrollIntoView();
+            });
+
             // Rispondi al messaggio
             
             const idx = Math.floor(Math.random() * this.answer.length)
@@ -295,6 +312,11 @@ createApp({
                 this.write = false;
                 this.status = true;
 
+                
+                this.$nextTick(() => {
+                    this.$refs.scroll.lastElementChild.scrollIntoView();
+                });
+
             }, 1000);
 
             setInterval(() => {
@@ -306,8 +328,8 @@ createApp({
             }, 6000);
 
         }
-
         this.newMessage = '';
+
 
     },
 
@@ -400,7 +422,8 @@ createApp({
         this.search = '';
         this.active = this.contacts.length-1;
 
-    }
+    },
+    
     
   },
 
@@ -419,6 +442,8 @@ createApp({
         
     }
   }
+
+  
   
 }).mount("#app")
 
@@ -434,4 +459,3 @@ function addZero(i) {
   function isSameCharacter(str) {
     return str.split('').every(char => char === " ");
   }
-  

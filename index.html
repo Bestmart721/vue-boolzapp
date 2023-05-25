@@ -163,11 +163,11 @@
 
             <!-- Chat del contatto -->
 
-            <div id="chat">
+            <div id="chat" ref="scroll">
 
               <!-- Messaggi nella chat -->
 
-              <div class="message" v-for="(message, idx) in contacts[active].messages">
+              <div class="message"  v-for="(message, idx) in contacts[active].messages">
 
                 
                 <div :class="message.status == 'received' ? 'contact-message' : 'user-message'" class="row" @click="deleteMessage(idx)">
