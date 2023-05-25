@@ -8,6 +8,7 @@ createApp({
         write: false,
         acces: false,
         status: false,
+        viewOptions: false,
         active: 0,
         newMessage: '',
         search: '',
@@ -340,6 +341,32 @@ createApp({
       
           }
       },
+
+    showSettins() {
+        this.viewOptions = !this.viewOptions;
+    },
+
+    // permette di eliminare tutti i messaggi di una chat
+
+    deleteAllMessages() {
+
+        const lng = this.contacts[this.active].messages.length;
+
+
+        this.contacts[this.active].messages.splice(0,lng);
+
+        this.viewOptions = false;
+
+    },
+
+    // Permette di eliminare la chat selezionata
+
+    delelteChat() {
+
+        this.contacts.splice(this.active, 1);
+
+        this.viewOptions = false;
+    }
     
   },
 

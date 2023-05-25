@@ -145,8 +145,16 @@
 
                   <i class="fa-solid fa-magnifying-glass"></i>
                   <i class="fa-solid fa-paperclip"></i>
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                  <i class="fa-solid fa-ellipsis-vertical" @click.stop="showSettins"></i>
 
+                </div>
+
+                <div id="chat-option" :class="viewOptions ? 'show' : 'hide'
+                ">
+                  <ul>
+                    <li @click.stop="deleteAllMessages">Elimina tutti i messaggi</li>
+                    <li @click.stop="delelteChat">Elimina la chat</li>
+                  </ul>
                 </div>
 
               </div>
@@ -159,9 +167,10 @@
 
               <!-- Messaggi nella chat -->
 
-              <div class="message" v-for="(message, idx) in contacts[active].messages" @click="deleteMessage(idx)">
+              <div class="message" v-for="(message, idx) in contacts[active].messages">
 
-                <div :class="message.status == 'received' ? 'user-message' : 'contact-message'" class="row">
+                
+                <div :class="message.status == 'received' ? 'contact-message' : 'user-message'" class="row" @click="deleteMessage(idx)">
 
                   <!-- Testo del messaggio -->
 

@@ -158,6 +158,33 @@ body {
   overflow: auto;
 }
 
+/* Regole opzioni gestione chat */
+
+#chat-option {
+  position: absolute;
+  z-index: 99;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#chat-option ul {
+  list-style: none;
+  cursor: pointer;
+}
+#chat-option li {
+  border-bottom: 1px solid black;
+  margin: 5px 0;
+}
+
+#chat-option li:hover {
+  background-color: #ccc;
+}
+
+/* Regole messaggi */
+
 .message {
   display: flex;
   flex-direction: column;
@@ -175,13 +202,14 @@ body {
   justify-content: space-between;
 }
 
-.contact-message {
+.user-message {
   margin-right: 15px;
   background-color: rgb(213, 249, 186);
   align-self: flex-end;
+  position: relative;
 }
 
-.user-message {
+.contact-message {
   margin-left: 15px;
   background-color: rgb(255, 255, 255);
 }
@@ -204,6 +232,9 @@ body {
   padding: 5px;
   margin: 0 20px;
 }
+
+
+/* Regole responsive */
 
 @media screen and (max-width: 1000px){
 
