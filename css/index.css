@@ -67,12 +67,12 @@ body {
   height: 60vh;
 }
 
-#user-list-top {
+#user-list-top, #contact-list-top {
   background-color: rgb(234, 234, 234);
   margin-bottom: 10px;
 }
 
-#setting {
+#user-setting, #setting {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
@@ -84,18 +84,17 @@ body {
   border-radius: 50%;
 }
 
-#user-list-top #user-info div{
+#user-list-top #user-info div, #contact-list-top #contact-info div{
   margin-top: 10px;
   margin-left: 10px;
 }
 
-
-#user-info > h4 {
+#user-info > h4, #contact-info > h4 {
   display: inline;
   margin-left: 5px;
 }
 
-#user-settings i {
+#user-settings i, #contact-settings i {
   color: rgb(177, 177, 177);
   margin-right: 10px;
   cursor: pointer;
@@ -158,7 +157,7 @@ body {
 
 /* Regole ridimensionamento font utente */
 
-#font-size {
+.font-size {
   margin-left: 10px;
   margin-top: 10px;
 }

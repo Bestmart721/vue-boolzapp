@@ -42,7 +42,7 @@
 
               <!-- Ipostazioni applicazione -->
 
-              <div id="setting" class="row">
+              <div id="user-setting" class="row">
 
                 <!-- Informazioni utilizzatore  -->
 
@@ -53,7 +53,7 @@
 
                 </div>
 
-                <!-- Impostazioni gestione chat -->
+                <!-- Impostazioni gestione lista chat -->
 
                 <div id="user-settings">
 
@@ -126,7 +126,7 @@
 
               <!-- Selettore della dimensione del font  -->
 
-              <div id="font-size">
+              <div class="font-size">
 
                 <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
                     <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
@@ -149,7 +149,7 @@
 
               <!-- Pagina della chat -->
 
-              <header id="user-list-top">
+              <header id="contact-list-top">
 
                 <!-- Ipostazioni chat -->
     
@@ -157,7 +157,7 @@
     
                   <!-- Informazioni contatto  -->
     
-                  <div id="user-info" class="row">
+                  <div id="contact-info" class="row">
     
                     <img class="user-image" :src="contacts[active].avatar" alt="Avatar utente">
     
@@ -176,7 +176,7 @@
     
                     <!-- Impostazioni gestione chat -->
     
-                    <div id="user-settings">
+                    <div id="contact-settings">
     
                       <i class="fa-solid fa-magnifying-glass"></i>
                       <i class="fa-solid fa-paperclip"></i>
@@ -205,6 +205,7 @@
                     <button onclick="turnToContact()"><i class="fa-solid fa-arrow-left"></i></button>
                      
                   </div>
+
     
                   <!-- Messaggi nella chat -->
     
@@ -241,7 +242,7 @@
 
                   <!-- Selettore della dimensione del font  -->
 
-                  <div id="font-size" :class="displayMode === 'mobile' ?'show':'hide'">
+                  <div class="font-size" :class="displayMode === 'mobile' ?'show':'hide'">
 
                     <button onclick="increaseFontSize()"><i class="fa fa-plus"></i></button>
                     <button onclick="decreaseFontSize()"><i class="fa fa-minus"></i></button>
