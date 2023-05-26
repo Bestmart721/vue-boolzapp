@@ -97,8 +97,9 @@ body {
 
 #user-settings i {
   color: rgb(177, 177, 177);
-  margin-right: 15px;
+  margin-right: 10px;
   cursor: pointer;
+  padding: 10px;
 }
 
 #notification-setting{

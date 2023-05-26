@@ -205,9 +205,6 @@ createApp({
         var mainApp = document.getElementById('main-app');
         var currentWidth = parseFloat(window.getComputedStyle(mainApp).width);
     
-        console.log("eccomi");
-        console.log(currentWidth);
-    
         if( currentWidth <= 400) {
     
             this.defaultPage = false;
@@ -327,7 +324,6 @@ createApp({
         // Aggiunta messaggio inviato nell'array dei messaggi
 
         const control = isSameCharacter(this.newMessage);
-        console.log(control);
 
         // Controlla se il messaggio inserito non sia vuoto o composto da soli spazi
 
@@ -387,14 +383,13 @@ createApp({
     // Permetti all'utente di eliminare i messaggi inviati
 
     deleteMessage(idx) {
-        console.log(this.contacts[this.active].messages[idx]);
 
         if(this.contacts[this.active].messages[idx].status === 'sent') {
 
             return this.contacts[this.active].messages.splice(idx, 1);
 
-        }
-        
+        }           
+     
     }, 
 
     // Mosta l'orario di ultimo accesso del contatto
@@ -435,7 +430,7 @@ createApp({
 
     // Permette di eliminare la chat selezionata
 
-    delelteChat() {
+    deleteChat() {
 
         this.contacts.splice(this.active, 1);
 
@@ -444,19 +439,21 @@ createApp({
         }
 
         this.viewOptions = false;
-        this.defaultPage = true;
+
+        if(this.displayMode === 'desktop') {
+            this.defaultPage = true;
+        } else {
+            turnToContact();
+        }
     },
 
     newConversation() {
-
-        // console.log(this.search);
         
         for(let i = 0; i < this.contacts.length; i++) {
 
             if((this.contacts[i].name).toLowerCase() === (this.search).toLowerCase()) {
 
                 this.nameFound = true;
-                console.log("trovato");
 
             }
 
@@ -493,6 +490,7 @@ createApp({
         }
         
     }
+
   },
 
   mounted() {
@@ -501,8 +499,7 @@ createApp({
 
     setTimeout(() => {
         this.showSplash = false;
-        console.log("peovs");
-      }, 1000)
+      }, 1000);
   }
 
   
@@ -553,3 +550,4 @@ function addZero(i) {
     
 
   }
+

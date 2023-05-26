@@ -15,7 +15,6 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    
 
       <div id="top-green"></div>
 
@@ -89,6 +88,7 @@
               </header>
 
               <!-- Lista chat -->
+
               <div id="list"> 
 
                 <div class="contact row" v-for="(contact, idx) in filteredUsers" :key="contact"  @click="activechat(idx)">
@@ -188,7 +188,7 @@
                     ">
                       <ul>
                         <li @click.stop="deleteAllMessages">Elimina tutti i messaggi</li>
-                        <li @click.stop="delelteChat">Elimina la chat</li>
+                        <li @click.stop="deleteChat">Elimina la chat</li>
                       </ul>
                     </div>
     
