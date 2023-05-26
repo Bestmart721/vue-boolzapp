@@ -468,6 +468,7 @@ createApp({
             })
         }
 
+        this.defaultPage = false;
         this.search = '';
         this.active = this.contacts.length-1;
 
