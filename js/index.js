@@ -538,6 +538,8 @@ function addZero(i) {
     }
   }
 
+  // Permette di tornare indietro alla lista contatti in modalità mobile   
+
   function turnToContact() {
     
     var userChat = document.getElementById('user-chat');
